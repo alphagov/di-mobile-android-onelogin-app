@@ -1,5 +1,6 @@
 package uk.gov.onelogin.login.ui.splash
 
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +21,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -54,7 +54,7 @@ import uk.gov.onelogin.optin.ui.OptInRequirementViewModel
 fun SplashScreen(
     viewModel: SplashScreenViewModel = hiltViewModel()
 ) {
-    val context = LocalContext.current as FragmentActivity
+    val context = LocalActivity.current as FragmentActivity
     val lifecycleOwner = LocalLifecycleOwner.current
     val optInRequirementViewModel: OptInRequirementViewModel = hiltViewModel()
     val loading = viewModel.loading.collectAsState()

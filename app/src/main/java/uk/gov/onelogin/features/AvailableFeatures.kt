@@ -11,7 +11,9 @@ class AvailableFeatures(
     constructor() : this(
         listOf(
             AppCheckFeatureFlag.entries.toTypedArray(),
-            WalletFeatureFlag.entries.toTypedArray()
+            WalletFeatureFlag.entries.toTypedArray(),
+            CriCardFeatureFlag.entries.toTypedArray(),
+            CriModalFeatureFlag.entries.toTypedArray()
         ).flatMap {
             it.asIterable()
         }.toMutableSet()

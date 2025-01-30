@@ -2,7 +2,7 @@ package uk.gov.onelogin.ui.error
 
 import android.app.Activity
 import androidx.activity.compose.BackHandler
-import androidx.compose.ui.platform.LocalContext
+import androidx.activity.compose.LocalActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -27,7 +27,7 @@ object ErrorGraphObject {
             composable(
                 route = ErrorRoutes.SignOut.getRoute()
             ) {
-                val context = LocalContext.current as FragmentActivity
+                val context = LocalActivity.current as FragmentActivity
                 SignOutErrorScreen {
                     context.finishAndRemoveTask()
                 }
@@ -48,7 +48,7 @@ object ErrorGraphObject {
             composable(
                 route = ErrorRoutes.UpdateRequired.getRoute()
             ) {
-                val context = LocalContext.current as Activity
+                val context = LocalActivity.current as Activity
                 BackHandler(enabled = true) {
                     // Close/ terminate the app
                     context.finishAndRemoveTask()
