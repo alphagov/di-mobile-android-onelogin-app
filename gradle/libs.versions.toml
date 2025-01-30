@@ -45,9 +45,9 @@ govuk-ui = "5.7.5"
 govuk-logging = "0.11.0"
 compose-runtime = "1.7.6"
 wallet = "1.34.0"
+cri-orchestrator = "0.7.2"
 
 [libraries]
-wallet-sdk = { module = "uk.gov.android.wallet:wallet_sdk", version.ref = "wallet" }
 runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "compose-runtime" }
 jose4j = { module = "org.bitbucket.b_c:jose4j", version.ref = "jose4j" }
 test-core-ktx = { group = "androidx.test", name = "core-ktx", version = "1.6.1" }
@@ -96,6 +96,9 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 classgraph = { group = "io.github.classgraph", name = "classgraph", version.ref = "classgraph" }
 
 # GDS
+wallet-sdk = { module = "uk.gov.android.wallet:wallet_sdk", version.ref = "wallet" }
+cri-orchestrator = { module = "uk.gov.onelogin.criorchestrator.sdk:sdk", version.ref = "cri-orchestrator" }
+
 components = { group = "uk.gov.android", name = "components", version.ref = "govuk-ui" }
 pages = { group = "uk.gov.android", name = "pages", version.ref = "govuk-ui" }
 theme = { group = "uk.gov.android", name = "theme", version.ref = "govuk-ui" }

@@ -82,10 +82,10 @@ plugins {
 }
 
 setProperty("appId", "uk.gov.onelogin")
-setProperty("compileSdkVersion", 34)
+setProperty("compileSdkVersion", 35)
 setProperty("configDir", "${rootProject.rootDir}/config")
 setProperty("minSdkVersion", 29)
-setProperty("targetSdkVersion", 34)
+setProperty("targetSdkVersion", 35)
 
 val jacocoVersion: String by rootProject.extra(
     libs.versions.jacoco.get(),

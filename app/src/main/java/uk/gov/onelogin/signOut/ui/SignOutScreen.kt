@@ -1,9 +1,9 @@
 package uk.gov.onelogin.signOut.ui
 
+import androidx.activity.compose.LocalActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -24,7 +24,7 @@ fun SignOutScreen(
     val loading by viewModel.loadingState.collectAsState()
     val analytics: SignOutAnalyticsViewModel = hiltViewModel()
     // Needed for deleteWalletData
-    val fragmentActivity = LocalContext.current as FragmentActivity
+    val fragmentActivity = LocalActivity.current as FragmentActivity
 
     if (loading) {
         LoadingScreen {

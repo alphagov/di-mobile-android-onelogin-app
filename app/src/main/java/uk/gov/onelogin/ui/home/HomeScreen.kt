@@ -1,5 +1,6 @@
 package uk.gov.onelogin.ui.home
 
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
@@ -14,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import uk.gov.android.onelogin.R
 import uk.gov.android.ui.pages.TitledPage
 import uk.gov.android.ui.pages.TitledPageParameters
+import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 import uk.gov.onelogin.developer.DeveloperTools
 import uk.gov.onelogin.ui.components.EmailHeader
 
@@ -25,10 +27,13 @@ fun HomeScreen(
 ) {
     val tokens = viewModel.getTokens()
     val email = viewModel.email
+    val httpClient = viewModel.httpClient
     TitledPage(
         parameters = TitledPageParameters(
             R.string.app_homeTitle
         ) {
+            val criOrchestratorComponent = rememberCriOrchestrator(httpClient)
+            Log.d("CriIOrchestratorInstance", "$criOrchestratorComponent")
             EmailHeader(email)
             Text(
                 text = "Access Token",
