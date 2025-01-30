@@ -61,7 +61,7 @@ jacoco-ant = { module = "org.jacoco:org.jacoco.ant", version.ref = "jacoco" }
 jacoco-core = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco" }
 jacoco-report = { module = "org.jacoco:org.jacoco.report", version.ref = "jacoco" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.7.3" }
-ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version = "2.3.8" }
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version = "3.0.3" }
 ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version = "3.0.3" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version = "5.4.0" }
 mockito-android = { group = "org.mockito", name = "mockito-android", version = "5.15.2" }
