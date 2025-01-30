@@ -9,6 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import uk.gov.android.network.client.GenericHttpClient
 import uk.gov.android.onelogin.R
 import uk.gov.android.wallet.core.deletedata.DeleteAllDataUseCase
+import uk.gov.android.wallet.core.navigation.Navigator
 import uk.gov.android.wallet.sdk.WalletSdk
 import uk.gov.android.wallet.sdk.WalletSdkImpl
 
@@ -19,6 +20,7 @@ object WalletModule {
     fun provideWalletSdk(
         @ApplicationContext
         context: Context,
+        navigator: Navigator,
         genericHttpClient: GenericHttpClient,
         deleteAllDataUseCase: DeleteAllDataUseCase
     ): WalletSdk {
@@ -26,7 +28,7 @@ object WalletModule {
             clientId = context.resources.getString(R.string.stsClientId),
             authNetworkClient = genericHttpClient
         )
-        val walletSdk = WalletSdkImpl(deleteAllDataUseCase)
+        val walletSdk = WalletSdkImpl(navigator, deleteAllDataUseCase)
         walletSdk.init(config)
         return walletSdk
     }
