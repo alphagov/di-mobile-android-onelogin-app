@@ -9,7 +9,6 @@
     <string name="app_home">Home</string>
     <string name="app_wallet">Wallet</string>
     <string name="app_settingsTitle">Settings</string>
-    <string name="app_cri_card_test_tag" translatable="false">Cri Orchestrator test tag</string>
 
     <!-- Loading -->
     <string name="app_loadingBody">Loading…</string>
@@ -22,7 +21,7 @@
     <string name="app_privacyNoticeLink2">GOV.UK One Login privacy notice</string>
     <string name="app_accessibilityStatement">Accessibility statement</string>
     <string name="app_accessibilityStatementUrl">https://signin.account.gov.uk/accessibility-statement?lng=en</string>
-    <string name="app_OpenSourceLicences">Open source licences</string>
+    <string name="app_openSourceLicences">Open source licences</string>
     <string name="app_appGuidanceLink">Using the GOV.UK One Login app</string>
     <string name="app_contactLink">Contact GOV.UK One Login</string>
     <string name="app_settingsAnalyticsToggle">Share app analytics</string>
@@ -57,6 +56,8 @@
     <string name="app_signOutButton_no_wallet">Sign out and delete preferences</string>
 
     <!-- Splash Screen -->
+    <string name="app_splashScreenAnalyticsScreenName" translatable="false">one login splash screen</string>
+    <string name="app_splashScreenUnlockAnalyticsScreenName" translatable="false">one login unlock screen</string>
     <string name="app_splashScreenLoadingIndicatorText">Loading</string>
     <string name="app_splashScreenLoadingContentDescription" translatable="false">Circular progress/ loading indicator</string>
 

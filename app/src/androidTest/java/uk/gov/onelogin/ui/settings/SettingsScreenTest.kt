@@ -64,7 +64,7 @@ class SettingsScreenTest : TestCase() {
             resources.getString(R.string.app_settingSignInDetailsFootnote)
         )
         legalLink1 = hasText(resources.getString(R.string.app_privacyNoticeLink2))
-        legalLink2 = hasText(resources.getString(R.string.app_OpenSourceLicences))
+        legalLink2 = hasText(resources.getString(R.string.app_openSourceLicences))
         legalLink3 = hasText(resources.getString(R.string.app_accessibilityStatement))
         helpLink = hasText(resources.getString(R.string.app_appGuidanceLink))
         contactLink = hasText(resources.getString(R.string.app_contactLink))

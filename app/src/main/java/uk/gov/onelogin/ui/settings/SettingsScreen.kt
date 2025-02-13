@@ -117,7 +117,7 @@ private fun LegalSection(
         uriHandler.openUri(accessibilityStatementUrl)
     }
     HorizontalDivider()
-    ExternalLinkRow(R.string.app_OpenSourceLicences, R.drawable.arrow_right_icon)
+    ExternalLinkRow(R.string.app_openSourceLicences, R.drawable.arrow_right_icon)
 }
 
 @Composable

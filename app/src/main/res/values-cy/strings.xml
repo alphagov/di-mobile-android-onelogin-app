@@ -19,7 +19,7 @@
     <string name="app_privacyNoticeLink2">Rhybudd Preifatrwydd GOV.UK One Login</string>
     <string name="app_accessibilityStatement">Datganiad hygyrchedd</string>
     <string name="app_accessibilityStatementUrl">https://signin.account.gov.uk/accessibility-statement?lng=cy</string>
-    <string name="app_OpenSourceLicences">Trwyddedau ffynhonnell agored</string>
+    <string name="app_openSourceLicences">Trwyddedau ffynhonnell agored</string>
     <string name="app_appGuidanceLink">Defnyddio\'r ap GOV.UK One Login</string>
     <string name="app_contactLink">Cysylltu GOV.UK One Login</string>
     <string name="app_settingsAnalyticsToggle">Rhannu analytics ap</string>
