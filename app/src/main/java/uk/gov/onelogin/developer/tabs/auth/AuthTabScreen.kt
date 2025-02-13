@@ -29,7 +29,7 @@ import uk.gov.android.ui.components.m3.buttons.ButtonParameters
 import uk.gov.android.ui.components.m3.buttons.ButtonType
 import uk.gov.android.ui.components.m3.buttons.GdsButton
 import uk.gov.android.ui.theme.smallPadding
-import uk.gov.onelogin.ui.components.EmailHeader
+import uk.gov.onelogin.ui.components.EmailSection
 
 @Composable
 fun AuthTabScreen(
@@ -56,7 +56,8 @@ private fun AuthTokensSection(
         text = "Authentication Tokens",
         style = MaterialTheme.typography.titleMedium
     )
-    EmailHeader(email)
+    HorizontalDivider()
+    EmailSection(email)
     Text(
         text = "Access Token",
         fontWeight = FontWeight.Bold,
