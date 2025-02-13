@@ -1,4 +1,4 @@
-package uk.gov.onelogin.ui.profile
+package uk.gov.onelogin.ui.settings
 
 import android.app.Activity
 import android.app.Instrumentation
@@ -39,16 +39,18 @@ import uk.gov.onelogin.signOut.SignOutRoutes
 
 @HiltAndroidTest
 @UninstallModules(NavigatorModule::class)
-class ProfileScreenTest : TestCase() {
+class SettingsScreenTest : TestCase() {
     @BindValue
     val mockNavigator: Navigator = mock()
 
     private lateinit var yourDetailsHeader: SemanticsMatcher
     private lateinit var yourDetailsTitle: SemanticsMatcher
     private lateinit var yourDetailsSubTitle: SemanticsMatcher
-    private lateinit var legalHeader: SemanticsMatcher
     private lateinit var legalLink1: SemanticsMatcher
     private lateinit var legalLink2: SemanticsMatcher
+    private lateinit var legalLink3: SemanticsMatcher
+    private lateinit var helpLink: SemanticsMatcher
+    private lateinit var contactLink: SemanticsMatcher
     private lateinit var aboutTheAppSwitch: SemanticsMatcher
     private lateinit var aboutTheAppSubTitle: SemanticsMatcher
     private lateinit var aboutTheAppPrivacyLink: SemanticsMatcher
@@ -56,12 +58,16 @@ class ProfileScreenTest : TestCase() {
 
     @Before
     fun setUp() {
-        yourDetailsHeader = hasText(resources.getString(R.string.app_profileSubtitle1))
-        yourDetailsTitle = hasText(resources.getString(R.string.app_signInDetails))
-        yourDetailsSubTitle = hasText(resources.getString(R.string.app_manageSignInDetailsFootnote))
-        legalHeader = hasText(resources.getString(R.string.app_profileSubtitle2))
+        yourDetailsHeader = hasText(resources.getString(R.string.app_settingsSubtitle1))
+        yourDetailsTitle = hasText(resources.getString(R.string.app_settingsSignInDetailsLink))
+        yourDetailsSubTitle = hasText(
+            resources.getString(R.string.app_settingSignInDetailsFootnote)
+        )
         legalLink1 = hasText(resources.getString(R.string.app_privacyNoticeLink2))
         legalLink2 = hasText(resources.getString(R.string.app_OpenSourceLicences))
+        legalLink3 = hasText(resources.getString(R.string.app_accessibilityStatement))
+        helpLink = hasText(resources.getString(R.string.app_appGuidanceLink))
+        contactLink = hasText(resources.getString(R.string.app_contactLink))
         aboutTheAppSwitch = hasTestTag(resources.getString(R.string.optInSwitchTestTag))
         aboutTheAppSubTitle = hasText(
             resources.getString(R.string.app_settingsAnalyticsToggleFootnote),
@@ -83,7 +89,7 @@ class ProfileScreenTest : TestCase() {
     @Test
     fun yourDetailsGroupDisplayed() {
         composeTestRule.setContent {
-            ProfileScreen()
+            SettingsScreen()
         }
         composeTestRule.onNode(yourDetailsHeader).assertIsDisplayed()
         composeTestRule.onNode(yourDetailsTitle).assertIsDisplayed()
@@ -93,17 +99,17 @@ class ProfileScreenTest : TestCase() {
     @Test
     fun legalGroupDisplayed() {
         composeTestRule.setContent {
-            ProfileScreen()
+            SettingsScreen()
         }
-        composeTestRule.onNode(legalHeader).assertIsDisplayed()
         composeTestRule.onNode(legalLink1).assertIsDisplayed()
         composeTestRule.onNode(legalLink2).assertIsDisplayed()
+        composeTestRule.onNode(legalLink3).assertIsDisplayed()
     }
 
     @Test
     fun aboutTheAppSectionDisplayed() {
         composeTestRule.setContent {
-            ProfileScreen()
+            SettingsScreen()
         }
         composeTestRule.onNode(aboutTheAppSwitch).performScrollTo().assertIsDisplayed()
         composeTestRule.onNode(aboutTheAppPrivacyLink).performScrollTo().assertIsDisplayed()
@@ -144,7 +150,7 @@ class ProfileScreenTest : TestCase() {
     @Test
     fun signOutCta() {
         composeTestRule.setContent {
-            ProfileScreen()
+            SettingsScreen()
         }
         composeTestRule.onNode(signOutButton).performScrollTo().performClick()
         verify(mockNavigator).navigate(SignOutRoutes.Start)
@@ -152,39 +158,47 @@ class ProfileScreenTest : TestCase() {
 
     @Test
     fun signInLaunchesBrowser() {
-        // Given the ProfileScreen Composable
-        val url = resources.getString(R.string.sign_in_url)
-        val signInURL = Uri.parse(url)
-        composeTestRule.setContent {
-            ProfileScreen()
-        }
-        // When clicking on the sign in link
-        composeTestRule.onNode(yourDetailsTitle).performClick()
-        // Then open a browser with the correct URL
-        val host = signInURL.host
-        val path = signInURL.path
-        val scheme = signInURL.scheme
-        intended(
-            allOf(
-                IntentMatchers.hasAction(Intent.ACTION_VIEW),
-                hasData(UriMatchers.hasHost(host)),
-                hasData(UriMatchers.hasPath(path)),
-                hasData(UriMatchers.hasScheme(scheme))
-            )
-        )
+        // Given the SettingsScreen Composable
+        val url = resources.getString(R.string.app_manageSignInDetailsUrl)
+        checkTheLinkOpensTheCorrectUrl(yourDetailsTitle, url)
+    }
+
+    @Test
+    fun helpLaunchesBrowser() {
+        // Given the SettingsScreen Composable
+        val url = resources.getString(R.string.app_helpUrl)
+        checkTheLinkOpensTheCorrectUrl(helpLink, url)
+    }
+
+    @Test
+    fun contactLaunchesBrowser() {
+        // Given the SettingsScreen Composable
+        val url = resources.getString(R.string.app_contactUrl)
+        checkTheLinkOpensTheCorrectUrl(contactLink, url)
     }
 
     @Test
     fun privacyNoticeLaunchesBrowser() {
-        // Given the ProfileScreen Composable
+        // Given the SettingsScreen Composable
         val url = resources.getString(R.string.privacy_notice_url)
+        checkTheLinkOpensTheCorrectUrl(legalLink1, url)
+    }
+
+    @Test
+    fun accessibilityStatementLaunchesBrowser() {
+        // Given the SettingsScreen Composable
+        val url = resources.getString(R.string.app_accessibilityStatementUrl)
+        checkTheLinkOpensTheCorrectUrl(legalLink3, url)
+    }
+
+    private fun checkTheLinkOpensTheCorrectUrl(linkView: SemanticsMatcher, url: String) {
         val signInURL = Uri.parse(url)
         composeTestRule.setContent {
-            ProfileScreen()
+            SettingsScreen()
         }
-        // When clicking on the privacy notice link
+        // When clicking on the link
 
-        composeTestRule.onNode(legalLink1).performClick()
+        composeTestRule.onNode(linkView).performClick()
         // Then open a browser with the correct URL
         val host = signInURL.host
         val path = signInURL.path

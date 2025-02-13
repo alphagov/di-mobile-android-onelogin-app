@@ -21,9 +21,9 @@ sealed class BottomNavDestination(
         label = R.string.app_wallet,
         icon = R.drawable.outline_article_24
     )
-    data object Profile : BottomNavDestination(
-        key = "profile",
-        label = R.string.app_profile,
-        icon = R.drawable.baseline_account_circle_24
+    data object Settings : BottomNavDestination(
+        key = "settings",
+        label = R.string.app_settingsTitle,
+        icon = R.drawable.ic_settings
     )
 }

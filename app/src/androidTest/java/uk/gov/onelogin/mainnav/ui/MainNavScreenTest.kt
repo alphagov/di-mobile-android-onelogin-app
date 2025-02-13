@@ -31,7 +31,7 @@ import uk.gov.onelogin.mainnav.nav.BottomNavDestination
 class MainNavScreenTest : TestCase() {
     private val homeTab = hasText(resources.getString(R.string.app_home))
     private val walletTab = hasText(resources.getString(R.string.app_wallet))
-    private val profileTab = hasText(resources.getString(R.string.app_profile))
+    private val settingsTab = hasText(resources.getString(R.string.app_settingsTitle))
 
     @BindValue
     val featureFlags: FeatureFlags = mock()
@@ -43,7 +43,7 @@ class MainNavScreenTest : TestCase() {
         composeTestRule.onAllNodes(homeTab)[1].isDisplayed() // we have double match of `Home` text
         composeTestRule.waitUntil(5000L) { composeTestRule.onNode(walletTab).isDisplayed() }
         composeTestRule.onNode(walletTab).isDisplayed()
-        composeTestRule.onNode(profileTab).isDisplayed()
+        composeTestRule.onNode(settingsTab).isDisplayed()
 
         assertEquals(
             BottomNavDestination.Home.key,
@@ -74,7 +74,7 @@ class MainNavScreenTest : TestCase() {
         setup()
         composeTestRule.onAllNodes(homeTab)[1].isDisplayed() // we have double match of `Home` text
         composeTestRule.onNode(walletTab).isNotDisplayed()
-        composeTestRule.onNode(profileTab).isDisplayed()
+        composeTestRule.onNode(settingsTab).isDisplayed()
 
         assertEquals(
             BottomNavDestination.Home.key,
@@ -83,17 +83,17 @@ class MainNavScreenTest : TestCase() {
     }
 
     @Test
-    fun goesToProfileOnClick() {
+    fun goesToSettingsOnClick() {
         setup()
-        composeTestRule.onNode(profileTab).performClick()
+        composeTestRule.onNode(settingsTab).performClick()
 
         assertEquals(
-            BottomNavDestination.Profile.key,
+            BottomNavDestination.Settings.key,
             navController.currentDestination?.route
         )
 
         composeTestRule.onAllNodesWithText(
-            resources.getString(R.string.app_profile)
+            resources.getString(R.string.app_settingsTitle)
         ).assertCountEquals(2)
     }
 

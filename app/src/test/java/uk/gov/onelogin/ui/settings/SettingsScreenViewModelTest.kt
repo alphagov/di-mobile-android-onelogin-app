@@ -1,4 +1,4 @@
-package uk.gov.onelogin.ui.profile
+package uk.gov.onelogin.ui.settings
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -20,8 +20,8 @@ import uk.gov.onelogin.signOut.SignOutRoutes
 import uk.gov.onelogin.tokens.usecases.GetEmail
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class ProfileScreenViewModelTest {
-    private lateinit var viewModel: ProfileScreenViewModel
+class SettingsScreenViewModelTest {
+    private lateinit var viewModel: SettingsScreenViewModel
 
     private val mockNavigator: Navigator = mock()
     private val mockGetEmail: GetEmail = mock()
@@ -32,7 +32,7 @@ class ProfileScreenViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         whenever(mockOptInRepository.hasAnalyticsOptIn()).thenReturn(flowOf(false))
-        viewModel = ProfileScreenViewModel(
+        viewModel = SettingsScreenViewModel(
             mockOptInRepository,
             mockNavigator,
             mockGetEmail
@@ -77,7 +77,7 @@ class ProfileScreenViewModelTest {
     @Test
     fun `optInState is true when repository returns true`() = runTest {
         whenever(mockOptInRepository.hasAnalyticsOptIn()).thenReturn(flowOf(true))
-        viewModel = ProfileScreenViewModel(
+        viewModel = SettingsScreenViewModel(
             mockOptInRepository,
             mockNavigator,
             mockGetEmail
@@ -88,7 +88,7 @@ class ProfileScreenViewModelTest {
     @Test
     fun `toggleOptInPreference calls optOut on repository when state is true`() = runTest {
         whenever(mockOptInRepository.hasAnalyticsOptIn()).thenReturn(flowOf(true))
-        viewModel = ProfileScreenViewModel(
+        viewModel = SettingsScreenViewModel(
             mockOptInRepository,
             mockNavigator,
             mockGetEmail
@@ -103,7 +103,7 @@ class ProfileScreenViewModelTest {
     @Test
     fun `toggleOptInPreference calls optOut on repository when state is false`() = runTest {
         whenever(mockOptInRepository.hasAnalyticsOptIn()).thenReturn(flowOf(false))
-        viewModel = ProfileScreenViewModel(
+        viewModel = SettingsScreenViewModel(
             mockOptInRepository,
             mockNavigator,
             mockGetEmail

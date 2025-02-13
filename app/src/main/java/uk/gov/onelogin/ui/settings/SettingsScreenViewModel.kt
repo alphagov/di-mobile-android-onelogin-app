@@ -1,4 +1,4 @@
-package uk.gov.onelogin.ui.profile
+package uk.gov.onelogin.ui.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +15,7 @@ import uk.gov.onelogin.signOut.SignOutRoutes
 import uk.gov.onelogin.tokens.usecases.GetEmail
 
 @HiltViewModel
-class ProfileScreenViewModel @Inject constructor(
+class SettingsScreenViewModel @Inject constructor(
     private val optInRepository: OptInRepository,
     private val navigator: Navigator,
     getEmail: GetEmail
