@@ -6,27 +6,26 @@
     <string name="app_closeButton">Cau</string>
     <string name="app_home">Hafan</string>
     <string name="app_wallet">Waled</string>
-    <string name="app_profile">Proffil</string>
+    <string name="app_settingsTitle">Gosodiadau</string>
 
     <!-- Loading -->
     <string name="app_loadingBody">Llwytho…</string>
 
-    <!-- Profile -->
-    <string name="app_profileSubtitle1">Eich manylion</string>
-    <string name="app_profileSubtitle2">Cyfreithiol</string>
-    <string name="app_profileSubtitle3">Help ac adborth</string>
-    <string name="app_manageSignInDetailsFootnote">Rheoli eich manylion mewngofnodi gyda\'r gwasanaeth gwe GOV.UK One Login. Bydd angen i chi fewngofnodi eto.</string>
-    <string name="app_privacyNoticeLink2">Rhybudd Preifatrwydd GOV.UK One Login</string>
-    <string name="app_OpenSourceLicences">Trwyddedau ffynhonnell agored</string>
-    <string name="app_reportAProblemGiveFeedbackLink">Rhoi gwybod am broblem neu roi adborth</string>
-    <string name="app_appGuidanceLink">Canllawiau ar ddefnyddio\'r ap</string>
+    <!-- Settings -->
+    <string name="app_settingsSubtitle1">Help ac adborth</string>
     <string name="app_settingsSubtitle2">Am yr ap</string>
-    <string name="app_settingsAnalyticsToggle">Rhannu dadansoddeg yr ap</string>
+    <string name="app_settingsSignInDetailsTile">Eich GOV.UK One Login</string>
+    <string name="app_settingSignInDetailsFootnote">Efallai y bydd angen i chi fewngofnodi eto i reoli eich manylion GOV.UK One Login.</string>
+    <string name="app_privacyNoticeLink2">Rhybudd Preifatrwydd GOV.UK One Login</string>
+    <string name="app_accessibilityStatement">Datganiad hygyrchedd</string>
+    <string name="app_openSourceLicences">Trwyddedau ffynhonnell agored</string>
+    <string name="app_appGuidanceLink">Defnyddio\'r ap GOV.UK One Login</string>
+    <string name="app_contactLink">Cysylltu GOV.UK One Login</string>
+    <string name="app_settingsAnalyticsToggle">Rhannu analytics ap</string>
     <string name="app_settingsAnalyticsToggleFootnote">Gallwch rannu dadansoddeg anhysbys am sut rydych yn defnyddio\'r ap i helpu\'r tim GOV.UK One Login i wneud gwelliannau.</string>
-    <string name="app_settingsAnalyticsToggleFootnoteLink">Darllenwch fwy yn yr hysbysiad preifatrwydd</string>
+    <string name="app_settingsAnalyticsToggleFootnoteLink">Darllenwch fwy yn yr hysbysiad preifatrwydd GOV.UK One Login</string>
     <string name="app_signOutButton">Allgofnodi</string>
-    <string name="app_signInDetails">Manylion mewngofnodi</string>
-    <string name="sign_in_url">https://signin.account.gov.uk/sign-in-or-create?lng=cy</string>
+    <string name="app_settingsSignInDetailsLink">Rheoli eich manylion mewngofnodi</string>
 
     <!-- Sign Out-->
     <string name="app_signOutConfirmationTitle">Ydych chi\'n siwr eich bod chi eisiau allgofnodi?</string>
@@ -90,10 +89,8 @@
     <string name="app_enableBiometricsBody3">Efallai y bydd unrhyw un sy\'n gallu datgloi eich ffôn gyda\'u biometreg neu gyda phin neu batrwm eich ffôn yn gallu cael mynediad i\'ch ap.</string>
     <string name="app_enableBiometricsButton">Defnyddio biometreg</string>
     <string name="app_enablePasscodeOrPatternButton">Defnyddio pin neu batrwm yn lle hynny</string>
-
     <string name="app_authenticationDialogueTitle">Datgloi GOV.UK One Login</string>
     <string name="app_homeTitle">Hafan</string>
-    <string name="app_displayEmail">Rydych wedi mewngofnodi fel</string>
 
     <!-- Analytics Opt In   -->
     <string name="app_analyticsPermissionTitle">Helpu i wella\'r ap drwy rannu dadansoddi</string>
@@ -101,7 +98,6 @@
     <string name="app_privacyNoticeLink">Darllenwch fwy am hyn yn hysbysiad preifatrwydd GOV.UK One Login</string>
     <string name="app_shareAnalyticsButton">Rhannu dadansoddeg</string>
     <string name="app_doNotShareAnalytics">Osgoi am y tro</string>
-    <string name="privacy_notice_url">https://signin.account.gov.uk/privacy-notice?lng=cy</string>
     <string name="app_updateApp_Title">Mae angen i chi ddiweddaru eich ap</string>
     <string name="app_updateAppBody1">Rydych yn defnyddio hen fersiwn o\'r ap GOV.UK One Login.</string>
     <string name="app_updateAppBody2">Diweddarwch eich ap i barhau</string>
@@ -113,4 +109,11 @@
     <string name="app_dataDeletedErrorBullet2">os oeddech chi\'n defnyddio biometreg neu pin neu batrwm eich ffôn i ddatgloi\'r ap, mae hyn wedi\'i ddiffodd</string>
     <string name="app_dataDeletedErrorBullet3">mae\'r ap wedi rhoi\'r gorau i rannu dadansoddeg am sut rydych yn ei ddefnyddio</string>
     <string name="app_dataDeletedErrorBody3">Er mwyn parhau i ddefnyddio\'r ap, bydd angen i chi fewngofnodi. Yna byddwch yn gallu ychwanegu eich dogfennau at eich GOV.UK Wallet a gosod eich dewisiadau eto.</string>
+
+    <!-- Url  -->
+    <string name="privacy_notice_url">https://signin.account.gov.uk/privacy-notice?lng=cy</string>
+    <string name="app_accessibilityStatementUrl">https://signin.account.gov.uk/accessibility-statement?lng=cy</string>
+    <string name="app_manageSignInDetailsUrl">https://www.gov.uk/defnyddio-eich-gov-uk-one-login</string>
+    <string name="app_helpUrl">http://gov.uk/one-login/app-help/cy</string>
+    <string name="app_contactUrl">https://home.account.gov.uk/contact-gov-uk-one-login?lng=cy</string>
 </resources>

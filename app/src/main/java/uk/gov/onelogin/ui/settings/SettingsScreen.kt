@@ -1,4 +1,4 @@
-package uk.gov.onelogin.ui.profile
+package uk.gov.onelogin.ui.settings
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
@@ -43,34 +43,37 @@ import uk.gov.android.onelogin.R
 import uk.gov.android.ui.components.GdsHeading
 import uk.gov.android.ui.components.HeadingParameters
 import uk.gov.android.ui.components.HeadingSize
+import uk.gov.android.ui.theme.hintTextGrey
+import uk.gov.android.ui.theme.mediumPadding
 import uk.gov.android.ui.theme.smallPadding
 import uk.gov.onelogin.optin.ui.PrivacyNotice
-import uk.gov.onelogin.ui.components.EmailHeader
-import uk.gov.onelogin.ui.components.LightRed
+import uk.gov.onelogin.ui.components.EmailSection
 import uk.gov.onelogin.ui.components.TitledPage
 
 @Composable
 @Preview
-fun ProfileScreen(
-    viewModel: ProfileScreenViewModel = hiltViewModel()
+fun SettingsScreen(
+    viewModel: SettingsScreenViewModel = hiltViewModel()
 ) {
     val uriHandler = LocalUriHandler.current
     val email = viewModel.email
     val optInState by viewModel.optInState.collectAsStateWithLifecycle(false)
-    val signInUrl = stringResource(R.string.sign_in_url)
+    val signInUrl = stringResource(R.string.app_manageSignInDetailsUrl)
     val privacyNoticeUrl = stringResource(R.string.privacy_notice_url)
+    val accessibilityStatementUrl = stringResource(R.string.app_accessibilityStatementUrl)
+    val helpUrl = stringResource(R.string.app_helpUrl)
+    val contactUrl = stringResource(R.string.app_contactUrl)
     TitledPage(
-        title = R.string.app_profile
+        title = R.string.app_settingsTitle
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
         ) {
-            EmailHeader(email)
+            EmailSection(email)
             YourDetailsSection(uriHandler, signInUrl)
-            LegalSection(uriHandler, privacyNoticeUrl)
-            HelpAndFeedbackSection()
+            HelpAndFeedbackSection(uriHandler, helpUrl, contactUrl)
             AboutTheAppSection(
                 optInState,
                 uriHandler,
@@ -78,6 +81,7 @@ fun ProfileScreen(
             ) {
                 viewModel.toggleOptInPreference()
             }
+            LegalSection(uriHandler, privacyNoticeUrl, accessibilityStatementUrl)
             SignOutRow { viewModel.goToSignOut() }
         }
     }
@@ -88,12 +92,12 @@ private fun YourDetailsSection(
     uriHandler: UriHandler,
     signInUrl: String
 ) {
-    HeadingRow(R.string.app_profileSubtitle1)
+    HorizontalDivider()
     ExternalLinkRow(
-        R.string.app_signInDetails,
+        R.string.app_settingsSignInDetailsLink,
         R.drawable.external_link_icon,
         description = stringResource(
-            id = R.string.app_manageSignInDetailsFootnote
+            id = R.string.app_settingSignInDetailsFootnote
         )
     ) {
         uriHandler.openUri(signInUrl)
@@ -103,25 +107,40 @@ private fun YourDetailsSection(
 @Composable
 private fun LegalSection(
     uriHandler: UriHandler,
-    privacyNoticeUrl: String
+    privacyNoticeUrl: String,
+    accessibilityStatementUrl: String
 ) {
-    HeadingRow(R.string.app_profileSubtitle2)
     ExternalLinkRow(R.string.app_privacyNoticeLink2, R.drawable.external_link_icon) {
         uriHandler.openUri(privacyNoticeUrl)
     }
     HorizontalDivider()
-    ExternalLinkRow(R.string.app_OpenSourceLicences, R.drawable.arrow_right_icon)
+    ExternalLinkRow(R.string.app_accessibilityStatement, R.drawable.external_link_icon) {
+        uriHandler.openUri(accessibilityStatementUrl)
+    }
+    HorizontalDivider()
+    ExternalLinkRow(R.string.app_openSourceLicences, R.drawable.arrow_right_icon)
 }
 
 @Composable
-private fun HelpAndFeedbackSection() {
-    HeadingRow(R.string.app_profileSubtitle3)
+private fun HelpAndFeedbackSection(
+    uriHandler: UriHandler,
+    helpUrl: String,
+    contactUrl: String
+) {
+    HeadingRow(R.string.app_settingsSubtitle1)
     ExternalLinkRow(
-        R.string.app_reportAProblemGiveFeedbackLink,
+        R.string.app_appGuidanceLink,
         R.drawable.external_link_icon
-    )
+    ) {
+        uriHandler.openUri(helpUrl)
+    }
     HorizontalDivider()
-    ExternalLinkRow(R.string.app_appGuidanceLink, R.drawable.external_link_icon)
+    ExternalLinkRow(
+        R.string.app_contactLink,
+        R.drawable.external_link_icon
+    ) {
+        uriHandler.openUri(contactUrl)
+    }
 }
 
 @Composable
@@ -140,7 +159,7 @@ internal fun AboutTheAppSection(
     PrivacyNotice(
         Modifier
             .padding(smallPadding),
-        style = MaterialTheme.typography.bodySmall,
+        style = MaterialTheme.typography.bodySmall.copy(color = hintTextGrey),
         privacyNoticeString = stringResource(
             id = R.string.app_settingsAnalyticsToggleFootnote
         ),
@@ -196,6 +215,7 @@ private fun ExternalLinkRow(
                             end = 64.dp
                         ),
                     style = MaterialTheme.typography.bodySmall,
+                    color = hintTextGrey,
                     text = it
                 )
             }
@@ -258,6 +278,7 @@ private fun SignOutRow(openSignOutScreen: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
+            .padding(top = mediumPadding)
             .height(56.dp)
             .fillMaxWidth()
             .background(color = MaterialTheme.colorScheme.inverseOnSurface)
@@ -271,7 +292,7 @@ private fun SignOutRow(openSignOutScreen: () -> Unit) {
                 .height(24.dp),
             style = MaterialTheme.typography.bodyMedium,
             text = stringResource(R.string.app_signOutButton),
-            color = LightRed
+            color = MaterialTheme.colorScheme.primary
         )
     }
 }

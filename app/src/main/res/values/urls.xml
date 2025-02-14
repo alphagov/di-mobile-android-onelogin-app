@@ -2,6 +2,9 @@
 
 <resources>
     <string name="app_oneLoginCardLinkUrl" translatable="false">https://www.gov.uk/using-your-gov-uk-one-login</string>
-    <string name="sign_in_url">https://signin.account.gov.uk/sign-in-or-create?lng=en</string>
     <string name="privacy_notice_url">https://signin.account.gov.uk/privacy-notice?lng=en</string>
+    <string name="app_accessibilityStatementUrl">https://signin.account.gov.uk/accessibility-statement?lng=en</string>
+    <string name="app_manageSignInDetailsUrl">https://www.gov.uk/using-your-gov-uk-one-login</string>
+    <string name="app_helpUrl">http://gov.uk/one-login/app-help</string>
+    <string name="app_contactUrl">https://home.account.gov.uk/contact-gov-uk-one-login?lng=en</string>
 </resources>

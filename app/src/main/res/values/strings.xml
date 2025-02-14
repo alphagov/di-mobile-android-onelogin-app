@@ -8,26 +8,25 @@
     <string name="app_closeButton">Close</string>
     <string name="app_home">Home</string>
     <string name="app_wallet">Wallet</string>
-    <string name="app_profile">Profile</string>
-
+    <string name="app_settingsTitle">Settings</string>
     <!-- Loading -->
     <string name="app_loadingBody">Loading…</string>
 
-    <!-- Profile -->
-    <string name="app_profileSubtitle1">Your details</string>
-    <string name="app_profileSubtitle2">Legal</string>
-    <string name="app_profileSubtitle3">Help and feedback</string>
-    <string name="app_manageSignInDetailsFootnote">Manage your sign in details with the GOV.UK One Login web service. You’ll need to sign in again.</string>
-    <string name="app_privacyNoticeLink2">GOV.UK One Login privacy notice</string>
-    <string name="app_OpenSourceLicences">Open source licences</string>
-    <string name="app_reportAProblemGiveFeedbackLink">Report a problem or give feedback</string>
-    <string name="app_appGuidanceLink">Guidance about using the app</string>
+    <!-- Settings -->
+    <string name="app_settingsSubtitle1">Help and feedback</string>
     <string name="app_settingsSubtitle2">About the app</string>
+    <string name="app_settingsSignInDetailsTile">Your GOV.UK One Login</string>
+    <string name="app_settingSignInDetailsFootnote">You might need to sign in again to manage your GOV.UK One Login details.</string>
+    <string name="app_privacyNoticeLink2">GOV.UK One Login privacy notice</string>
+    <string name="app_accessibilityStatement">Accessibility statement</string>
+    <string name="app_openSourceLicences">Open source licences</string>
+    <string name="app_appGuidanceLink">Using the GOV.UK One Login app</string>
+    <string name="app_contactLink">Contact GOV.UK One Login</string>
     <string name="app_settingsAnalyticsToggle">Share app analytics</string>
     <string name="app_settingsAnalyticsToggleFootnote">You can share anonymous analytics about how you use the app to help the GOV.UK One Login team make improvements.</string>
-    <string name="app_settingsAnalyticsToggleFootnoteLink">Read more in the privacy notice</string>
+    <string name="app_settingsAnalyticsToggleFootnoteLink">Read more in the GOV.UK One Login privacy notice</string>
     <string name="app_signOutButton">Sign out</string>
-    <string name="app_signInDetails">Sign in details</string>
+    <string name="app_settingsSignInDetailsLink">Manage sign in details</string>
 
     <!-- Sign Out -->
     <string name="app_signOutConfirmationTitle">Are you sure you want to sign out?</string>
@@ -100,7 +99,6 @@
     <string name="app_authenticationDialogueTitle">Unlock GOV.UK One Login</string>
 
     <string name="app_homeTitle">Home</string>
-    <string name="app_displayEmail">You’re signed in as</string>
 
     <string name="app_walletTitle" translatable="false">GOV.UK Wallet</string>
 
