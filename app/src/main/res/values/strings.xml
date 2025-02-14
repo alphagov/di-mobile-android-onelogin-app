@@ -149,6 +149,9 @@
 
     <!-- Analytics Values   -->
     <string name="system_backButton" translatable="false">back - system</string>
+    <string name="generic_error_reason" translatable="false">generic error</string>
+    <string name="sign_in_error_reason" translatable="false">sign in error</string>
+    <string name="network_error_reason" translatable="false">network error</string>
 
     <!-- Home Screen -->
     <string name="app_oneLoginCardTitle" translatable="false">Using your GOV.UK One Login</string>

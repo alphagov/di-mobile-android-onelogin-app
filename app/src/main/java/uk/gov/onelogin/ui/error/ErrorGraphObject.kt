@@ -8,6 +8,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import uk.gov.onelogin.ui.error.generic.GenericErrorScreen
+import uk.gov.onelogin.ui.error.offline.OfflineErrorScreen
 import uk.gov.onelogin.ui.error.unavailable.AppUnavailableScreen
 import uk.gov.onelogin.ui.error.update.UpdateRequiredScreen
 

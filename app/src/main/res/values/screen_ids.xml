@@ -11,4 +11,7 @@
     <string name="splash_screen_page_id" translatable="false">3e95fe16-7ba7-4f46-a22e-4ae17112debf</string>
     <string name="splash_unlock_screen_page_id" translatable="false">d61fcd23-cbcf-4df6-8e9c-d0dec956dbe1</string>
     <string name="bio_opt_in_screen_page_id" translatable="false">4c6af885-a47f-4979-8b34-146574c73745</string>
+    <string name="generic_error_screen_id" translatable="false">f275a786-7366-4ef5-b24b-9e514d324403</string>
+    <string name="sign_in_error_screen_id" translatable="false">6c15e073-d1a5-4781-b416-aaad6e80b078</string>
+    <string name="network_error_screen_id" translatable="false">80606f36-f6aa-4f49-aaa8-ff7d3cdeb16f</string>
 </resources>
