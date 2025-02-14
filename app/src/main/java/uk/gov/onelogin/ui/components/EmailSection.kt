@@ -19,6 +19,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.android.onelogin.R
+import uk.gov.android.ui.theme.hintTextGrey
 import uk.gov.android.ui.theme.smallPadding
 
 @Composable
@@ -44,7 +45,8 @@ fun EmailSection(email: String) {
                 appendLine()
                 withStyle(
                     style = SpanStyle(
-                        fontSize = MaterialTheme.typography.bodySmall.fontSize
+                        fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                        color = hintTextGrey
                     )
                 ) {
                     append(email)

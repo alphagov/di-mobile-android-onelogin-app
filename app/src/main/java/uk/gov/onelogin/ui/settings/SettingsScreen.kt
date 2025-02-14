@@ -43,6 +43,7 @@ import uk.gov.android.onelogin.R
 import uk.gov.android.ui.components.GdsHeading
 import uk.gov.android.ui.components.HeadingParameters
 import uk.gov.android.ui.components.HeadingSize
+import uk.gov.android.ui.theme.hintTextGrey
 import uk.gov.android.ui.theme.mediumPadding
 import uk.gov.android.ui.theme.smallPadding
 import uk.gov.onelogin.optin.ui.PrivacyNotice
@@ -158,7 +159,7 @@ internal fun AboutTheAppSection(
     PrivacyNotice(
         Modifier
             .padding(smallPadding),
-        style = MaterialTheme.typography.bodySmall,
+        style = MaterialTheme.typography.bodySmall.copy(color = hintTextGrey),
         privacyNoticeString = stringResource(
             id = R.string.app_settingsAnalyticsToggleFootnote
         ),
@@ -214,6 +215,7 @@ private fun ExternalLinkRow(
                             end = 64.dp
                         ),
                     style = MaterialTheme.typography.bodySmall,
+                    color = hintTextGrey,
                     text = it
                 )
             }
