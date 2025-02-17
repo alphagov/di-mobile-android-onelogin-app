@@ -43,7 +43,7 @@ crashlytics = "3.0.2"
 classgraph = "4.8.179"
 govuk-ui = "7.3.0"
 govuk-logging = "0.14.0"
-compose-runtime = "1.7.6"
+compose-runtime = "1.7.8"
 wallet = "1.38.0"
 cri-orchestrator = "0.7.9"
 
