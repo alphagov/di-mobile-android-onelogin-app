@@ -49,37 +49,37 @@ import uk.gov.android.authentication.integrity.pop.SignedPoP
 import uk.gov.android.authentication.login.LoginSession
 import uk.gov.android.authentication.login.LoginSessionConfiguration
 import uk.gov.android.authentication.login.TokenResponse
-import uk.gov.android.onelogin.R
+import uk.gov.android.onelogin.core.R
 import uk.gov.android.securestore.SecureStore
 import uk.gov.onelogin.HiltTestActivity
 import uk.gov.onelogin.OneLoginApp
-import uk.gov.onelogin.TestUtils
-import uk.gov.onelogin.appcheck.AppCheckModule
-import uk.gov.onelogin.appcheck.AppIntegrity
-import uk.gov.onelogin.appcheck.AttestationResult
-import uk.gov.onelogin.appcheck.usecase.AppCheckUseCaseModule
+import uk.gov.onelogin.appcheck.AppCheckerModule
 import uk.gov.onelogin.appinfo.AppInfoApiModule
-import uk.gov.onelogin.appinfo.service.domain.AppInfoService
-import uk.gov.onelogin.appinfo.service.domain.model.AppInfoServiceState
-import uk.gov.onelogin.appinfo.source.domain.source.AppInfoLocalSource
-import uk.gov.onelogin.credentialchecker.BiometricManager
-import uk.gov.onelogin.credentialchecker.BiometricStatus
-import uk.gov.onelogin.credentialchecker.CredentialChecker
-import uk.gov.onelogin.credentialchecker.CredentialCheckerModule
+import uk.gov.onelogin.biometrics.DeviceCredentialCheckerModule
+import uk.gov.onelogin.core.biometrics.data.BiometricStatus
+import uk.gov.onelogin.core.biometrics.domain.BiometricManager
+import uk.gov.onelogin.core.biometrics.domain.CredentialChecker
+import uk.gov.onelogin.core.navigation.domain.Navigator
+import uk.gov.onelogin.core.tokens.data.TokenRepository
+import uk.gov.onelogin.core.tokens.utils.AuthTokenStoreKeys
+import uk.gov.onelogin.core.utils.LocaleUtils
 import uk.gov.onelogin.e2e.controller.TestCase
-import uk.gov.onelogin.login.authentication.LoginSessionModule
-import uk.gov.onelogin.navigation.Navigator
-import uk.gov.onelogin.repositiories.TokenRepository
-import uk.gov.onelogin.tokens.Keys
-import uk.gov.onelogin.ui.LocaleUtils
+import uk.gov.onelogin.features.appinfo.data.model.AppInfoServiceState
+import uk.gov.onelogin.features.appinfo.domain.AppInfoLocalSource
+import uk.gov.onelogin.features.appinfo.domain.AppInfoService
+import uk.gov.onelogin.features.login.domain.appintegrity.AppIntegrity
+import uk.gov.onelogin.features.login.domain.appintegrity.AttestationResult
+import uk.gov.onelogin.login.LoginSessionModule
+import uk.gov.onelogin.login.appintegrity.AppIntegrityModule
+import uk.gov.onelogin.utils.TestUtils
 
 @HiltAndroidTest
 @UninstallModules(
     LoginSessionModule::class,
-    CredentialCheckerModule::class,
+    DeviceCredentialCheckerModule::class,
     AppInfoApiModule::class,
-    AppCheckUseCaseModule::class,
-    AppCheckModule::class
+    AppCheckerModule::class,
+    AppIntegrityModule::class
 )
 class LoginTest : TestCase() {
     @BindValue
@@ -461,15 +461,15 @@ class LoginTest : TestCase() {
 
     private suspend fun setPersistentId() {
         secureStore.upsert(
-            key = Keys.PERSISTENT_ID_KEY,
+            key = AuthTokenStoreKeys.PERSISTENT_ID_KEY,
             value = PERSISTENT_ID
         )
-        sharedPrefs.edit().putString(Keys.PERSISTENT_ID_KEY, PERSISTENT_ID).apply()
+        sharedPrefs.edit().putString(AuthTokenStoreKeys.PERSISTENT_ID_KEY, PERSISTENT_ID).apply()
     }
 
     private fun deletePersistentId() {
         secureStore.delete(
-            key = Keys.PERSISTENT_ID_KEY
+            key = AuthTokenStoreKeys.PERSISTENT_ID_KEY
         )
     }
 

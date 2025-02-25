@@ -13,8 +13,9 @@ import uk.gov.android.securestore.AccessControlLevel
 import uk.gov.android.securestore.SecureStorageConfiguration
 import uk.gov.android.securestore.SecureStore
 import uk.gov.android.securestore.SharedPrefsStore
-import uk.gov.onelogin.tokens.usecases.AutoInitialiseSecureStore
-import uk.gov.onelogin.tokens.usecases.AutoInitialiseSecureStoreImpl
+import uk.gov.onelogin.core.tokens.data.initialise.AutoInitialiseSecureStore
+import uk.gov.onelogin.core.tokens.data.initialise.AutoInitialiseSecureStoreImpl
+import uk.gov.onelogin.core.tokens.utils.AuthTokenStoreKeys
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -33,7 +34,7 @@ object SecureStoreSingletonModule {
         context: Context
     ): SecureStore = SharedPrefsStore().also {
         val configuration = SecureStorageConfiguration(
-            Keys.OPEN_SECURE_STORE_ID,
+            AuthTokenStoreKeys.OPEN_SECURE_STORE_ID,
             AccessControlLevel.OPEN
         )
         it.init(context, configuration)

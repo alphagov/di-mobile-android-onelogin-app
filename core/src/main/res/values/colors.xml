@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="govuk_blue">#FF1D70B8</color>
+    <color name="nav_bottom_selected">#CCE2D8</color>
+    <color name="icon_background">@color/govuk_blue</color>
+    <color name="icon_foreground">@color/white</color>
+</resources>

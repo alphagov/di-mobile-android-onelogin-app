@@ -46,6 +46,8 @@ govuk-logging = "0.15.0"
 compose-runtime = "1.7.8"
 wallet = "1.38.0"
 cri-orchestrator = "0.9.2"
+junitVersion = "4.13.2"
+material = "1.12.0"
 
 [libraries]
 runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "compose-runtime" }
@@ -77,6 +79,7 @@ androidx-browser = { group = "androidx.browser", name = "browser", version.ref =
 androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "androidxBiometric" }
 androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "compose-material" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "compose-material3" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "compose-material3" }
 androidx-compose-ui-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose-ui-junit4" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -115,6 +118,8 @@ firebase-appcheck = { module = "com.google.firebase:firebase-appcheck-playintegr
 firebase-appcheck-debug = { module = "com.google.firebase:firebase-appcheck-debug" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 firebase = ["firebase-appcheck", "firebase-appcheck-debug", "firebase-analytics", "firebase-crashlytics"]

@@ -7,11 +7,13 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import uk.gov.android.network.client.GenericHttpClient
-import uk.gov.android.onelogin.R
+import uk.gov.android.onelogin.core.R
 import uk.gov.android.wallet.core.deletedata.DeleteAllDataUseCase
 import uk.gov.android.wallet.core.navigation.Navigator
 import uk.gov.android.wallet.sdk.WalletSdk
 import uk.gov.android.wallet.sdk.WalletSdkImpl
+import uk.gov.onelogin.features.wallet.domain.DeleteWalletDataUseCase
+import uk.gov.onelogin.features.wallet.domain.DeleteWalletDataUseCaseImpl
 
 @InstallIn(SingletonComponent::class)
 @Module

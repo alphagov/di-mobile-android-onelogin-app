@@ -8,12 +8,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import uk.gov.android.ui.theme.GdsTheme
+import uk.gov.onelogin.core.navigation.data.LoginRoutes
 import uk.gov.onelogin.developer.DeveloperRoutes.developerFlowRoutes
-import uk.gov.onelogin.login.LoginGraphObject.loginGraph
-import uk.gov.onelogin.login.LoginRoutes
-import uk.gov.onelogin.mainnav.nav.MainNavGraph.mainNavRoutesFlow
-import uk.gov.onelogin.signOut.SignOutGraphObject.signOutGraph
-import uk.gov.onelogin.ui.error.ErrorGraphObject.errorGraph
+import uk.gov.onelogin.navigation.graphs.ErrorGraphObject.errorGraph
+import uk.gov.onelogin.navigation.graphs.LoginGraphObject.loginGraph
+import uk.gov.onelogin.navigation.graphs.MainNavGraph.mainNavRoutesFlow
+import uk.gov.onelogin.navigation.graphs.SignOutGraphObject.signOutGraph
 
 @Composable
 fun OneLoginApp(

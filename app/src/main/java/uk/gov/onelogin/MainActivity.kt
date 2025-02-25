@@ -7,7 +7,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import uk.gov.onelogin.navigation.Navigator
+import uk.gov.onelogin.core.navigation.domain.Navigator
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

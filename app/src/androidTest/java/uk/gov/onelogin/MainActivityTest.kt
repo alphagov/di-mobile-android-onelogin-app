@@ -9,8 +9,8 @@ import org.junit.Test
 import org.mockito.kotlin.any
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
+import uk.gov.onelogin.core.navigation.domain.Navigator
 import uk.gov.onelogin.e2e.controller.TestCase
-import uk.gov.onelogin.navigation.Navigator
 import uk.gov.onelogin.navigation.NavigatorModule
 
 @HiltAndroidTest

@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import dagger.hilt.android.testing.HiltAndroidRule
 import org.junit.Before
 import org.junit.Rule
-import uk.gov.onelogin.FlakyTestRule
+import uk.gov.onelogin.utils.FlakyTestRule
 
 open class TestCase {
     @get:Rule(order = 1)

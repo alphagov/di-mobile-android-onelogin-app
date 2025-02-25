@@ -182,6 +182,8 @@ dependencies {
         libs.navigation.compose,
         libs.slf4j.api,
         libs.jose4j,
+        projects.featureflags,
+        projects.core,
         projects.features,
         libs.runtime.livedata,
         platform(libs.firebase.bom),

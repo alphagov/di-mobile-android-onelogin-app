@@ -57,6 +57,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "OneLogin-Android"
 includeBuild("buildLogic")
 include(":app")
+include(":core")
+include(":featureflags")
 include(":features")
 
 gradle.startParameter.excludedTaskNames.addAll(listOf(":buildLogic:plugins:testClasses"))

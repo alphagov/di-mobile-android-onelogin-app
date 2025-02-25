@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application>
+        <activity
+            android:name="uk.gov.onelogin.core.TestActivity"
+            android:exported="false"
+            android:permission="">
+        </activity>
+        <activity
+            android:name="uk.gov.android.securestore.TestActivity"
+            tools:node="remove" >
+        </activity>
+    </application>
+</manifest>

@@ -4,35 +4,32 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import uk.gov.onelogin.tokens.usecases.GetEmail
-import uk.gov.onelogin.tokens.usecases.GetEmailImpl
-import uk.gov.onelogin.tokens.usecases.GetFromOpenSecureStore
-import uk.gov.onelogin.tokens.usecases.GetFromOpenSecureStoreImpl
-import uk.gov.onelogin.tokens.usecases.GetFromTokenSecureStore
-import uk.gov.onelogin.tokens.usecases.GetFromTokenSecureStoreImpl
-import uk.gov.onelogin.tokens.usecases.GetPersistentId
-import uk.gov.onelogin.tokens.usecases.GetPersistentIdImpl
-import uk.gov.onelogin.tokens.usecases.RemoveAllSecureStoreData
-import uk.gov.onelogin.tokens.usecases.RemoveAllSecureStoreDataImpl
-import uk.gov.onelogin.tokens.usecases.RemoveTokenExpiry
-import uk.gov.onelogin.tokens.usecases.RemoveTokenExpiryImpl
-import uk.gov.onelogin.tokens.usecases.SaveToOpenSecureStore
-import uk.gov.onelogin.tokens.usecases.SaveToOpenSecureStoreImpl
-import uk.gov.onelogin.tokens.usecases.SaveToSecureStore
-import uk.gov.onelogin.tokens.usecases.SaveToSecureStoreImpl
-import uk.gov.onelogin.tokens.usecases.SaveTokenExpiry
-import uk.gov.onelogin.tokens.usecases.SaveTokenExpiryImpl
-import uk.gov.onelogin.tokens.verifier.Jose4jJwtVerifier
-import uk.gov.onelogin.tokens.verifier.JwtVerifier
+import uk.gov.onelogin.core.tokens.domain.remove.RemoveAllSecureStoreData
+import uk.gov.onelogin.core.tokens.domain.remove.RemoveAllSecureStoreDataImpl
+import uk.gov.onelogin.core.tokens.domain.remove.RemoveTokenExpiry
+import uk.gov.onelogin.core.tokens.domain.remove.RemoveTokenExpiryImpl
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetEmail
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetEmailImpl
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetFromEncryptedSecureStore
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetFromEncryptedSecureStoreImpl
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetFromOpenSecureStore
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetFromOpenSecureStoreImpl
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetPersistentId
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetPersistentIdImpl
+import uk.gov.onelogin.core.tokens.domain.save.SaveToEncryptedSecureStore
+import uk.gov.onelogin.core.tokens.domain.save.SaveToEncryptedSecureStoreImpl
+import uk.gov.onelogin.core.tokens.domain.save.SaveToOpenSecureStore
+import uk.gov.onelogin.core.tokens.domain.save.SaveToOpenSecureStoreImpl
+import uk.gov.onelogin.core.tokens.domain.save.SaveTokenExpiry
+import uk.gov.onelogin.core.tokens.domain.save.SaveTokenExpiryImpl
 
 @Module
 @InstallIn(ViewModelComponent::class)
-@Suppress("TooManyFunctions")
 interface TokenModule {
     @Binds
     fun bindGetFromTokenSecureStore(
-        getFromSecureStore: GetFromTokenSecureStoreImpl
-    ): GetFromTokenSecureStore
+        getFromSecureStore: GetFromEncryptedSecureStoreImpl
+    ): GetFromEncryptedSecureStore
 
     @Binds
     fun bindGetFromOpenSecureStore(
@@ -41,8 +38,8 @@ interface TokenModule {
 
     @Binds
     fun bindSaveToSecureStore(
-        saveToSecureStore: SaveToSecureStoreImpl
-    ): SaveToSecureStore
+        saveToSecureStore: SaveToEncryptedSecureStoreImpl
+    ): SaveToEncryptedSecureStore
 
     @Binds
     fun bindSaveToOpenSecureStore(
@@ -73,7 +70,4 @@ interface TokenModule {
     fun bindSaveTokenExpiry(
         saveTokenExpiry: SaveTokenExpiryImpl
     ): SaveTokenExpiry
-
-    @Binds
-    fun bindJwtVerifier(verifier: Jose4jJwtVerifier): JwtVerifier
 }

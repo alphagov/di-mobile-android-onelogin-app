@@ -4,10 +4,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import uk.gov.onelogin.tokens.usecases.GetTokenExpiry
-import uk.gov.onelogin.tokens.usecases.GetTokenExpiryImpl
-import uk.gov.onelogin.tokens.usecases.IsAccessTokenExpired
-import uk.gov.onelogin.tokens.usecases.IsAccessTokenExpiredImpl
+import uk.gov.onelogin.core.tokens.domain.IsAccessTokenExpired
+import uk.gov.onelogin.core.tokens.domain.IsAccessTokenExpiredImpl
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetTokenExpiry
+import uk.gov.onelogin.core.tokens.domain.retrieve.GetTokenExpiryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)

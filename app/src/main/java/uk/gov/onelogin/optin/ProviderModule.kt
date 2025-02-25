@@ -9,7 +9,7 @@ import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import uk.gov.onelogin.optin.ui.IODispatcherQualifier
+import uk.gov.onelogin.features.optin.ui.IODispatcherQualifier
 
 @Module
 @InstallIn(ViewModelComponent::class)

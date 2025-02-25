@@ -86,10 +86,10 @@ jobs:
           version-name: "${{ steps.latest-tag.outputs.current-tag }}-${{ steps.version-code.outputs.version-code }}"
           app-check-token: ${{ secrets.BUILD_APPCHECK_DEBUG_TOKEN }}
 
+      - name: Bundle reports folder
+        uses: ./config/actions/bundle-reports
+
       - name: Run sonar quality gate
         uses: ./config/actions/sonar-quality-gate
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Bundle reports folder
-        uses: ./config/actions/bundle-reports

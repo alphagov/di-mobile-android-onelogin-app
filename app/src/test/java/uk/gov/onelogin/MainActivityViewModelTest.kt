@@ -2,25 +2,25 @@ package uk.gov.onelogin
 
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
+import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.Mockito.mock
 import org.mockito.kotlin.any
-import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import uk.gov.android.authentication.login.TokenResponse
+import uk.gov.onelogin.core.biometrics.data.BiometricPreference
+import uk.gov.onelogin.core.biometrics.domain.BiometricPreferenceHandler
+import uk.gov.onelogin.core.navigation.data.LoginRoutes
+import uk.gov.onelogin.core.navigation.domain.Navigator
+import uk.gov.onelogin.core.tokens.data.TokenRepository
+import uk.gov.onelogin.core.tokens.data.initialise.AutoInitialiseSecureStore
 import uk.gov.onelogin.extensions.CoroutinesTestExtension
 import uk.gov.onelogin.extensions.InstantExecutorExtension
-import uk.gov.onelogin.login.LoginRoutes
-import uk.gov.onelogin.login.biooptin.BiometricPreference
-import uk.gov.onelogin.login.biooptin.BiometricPreferenceHandler
-import uk.gov.onelogin.navigation.Navigator
-import uk.gov.onelogin.optin.domain.repository.AnalyticsOptInRepository
-import uk.gov.onelogin.repositiories.TokenRepository
-import uk.gov.onelogin.tokens.usecases.AutoInitialiseSecureStore
+import uk.gov.onelogin.features.optin.data.AnalyticsOptInRepository
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @ExtendWith(InstantExecutorExtension::class, CoroutinesTestExtension::class)

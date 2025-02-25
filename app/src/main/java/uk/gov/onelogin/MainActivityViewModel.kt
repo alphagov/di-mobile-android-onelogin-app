@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
-import uk.gov.onelogin.login.LoginRoutes
-import uk.gov.onelogin.login.biooptin.BiometricPreference
-import uk.gov.onelogin.login.biooptin.BiometricPreferenceHandler
-import uk.gov.onelogin.navigation.Navigator
-import uk.gov.onelogin.optin.domain.repository.AnalyticsOptInRepository
-import uk.gov.onelogin.repositiories.TokenRepository
-import uk.gov.onelogin.tokens.usecases.AutoInitialiseSecureStore
+import uk.gov.onelogin.core.biometrics.data.BiometricPreference
+import uk.gov.onelogin.core.biometrics.domain.BiometricPreferenceHandler
+import uk.gov.onelogin.core.navigation.data.LoginRoutes
+import uk.gov.onelogin.core.navigation.domain.Navigator
+import uk.gov.onelogin.core.tokens.data.TokenRepository
+import uk.gov.onelogin.core.tokens.data.initialise.AutoInitialiseSecureStore
+import uk.gov.onelogin.features.optin.data.AnalyticsOptInRepository
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(

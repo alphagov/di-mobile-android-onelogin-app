@@ -28,12 +28,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import uk.gov.android.onelogin.R
+import uk.gov.android.onelogin.core.R
 import uk.gov.android.ui.theme.m3.GdsTheme
-import uk.gov.onelogin.mainnav.nav.BottomNavDestination
-import uk.gov.onelogin.ui.home.HomeScreen
-import uk.gov.onelogin.ui.settings.SettingsScreen
-import uk.gov.onelogin.wallet.WalletScreenViewModel
+import uk.gov.onelogin.features.home.ui.HomeScreen
+import uk.gov.onelogin.features.settings.ui.SettingsScreen
+import uk.gov.onelogin.features.wallet.ui.WalletScreenViewModel
 import uk.gov.ui.components.navigation.GdsNavigationBar
 import uk.gov.ui.components.navigation.GdsNavigationItem
 
@@ -41,9 +40,9 @@ import uk.gov.ui.components.navigation.GdsNavigationItem
 @Composable
 fun MainNavScreen(
     navController: NavHostController = rememberNavController(),
-    walletScreenViewModel: WalletScreenViewModel = hiltViewModel()
+    walletScreenViewModel: WalletScreenViewModel = hiltViewModel(),
+    analyticsViewModel: MainNavAnalyticsViewModel = hiltViewModel()
 ) {
-    val analyticsViewModel: MainNavAnalyticsViewModel = hiltViewModel()
     val navItems = createBottomNavItems(
         walletScreenViewModel.walletEnabled,
         { analyticsViewModel.trackHomeTabButton() },
