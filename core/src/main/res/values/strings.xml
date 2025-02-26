@@ -83,11 +83,6 @@
     <string name="app_signOutErrorBody">You can force sign out by deleting the app from your device.</string>
     <string name="app_exitButton">Exit</string>
 
-    <!-- Passcode info -->
-    <string name="app_noPasscodePatternSetupTitle">It looks like this phone does not have a passcode or pattern</string>
-    <string name="app_noPasscodeSetupBody1">Setting a passcode on your phone adds further security. You can then sign into the app this way instead of with your email address and password.</string>
-    <string name="app_noPasscodeSetupBody2">You can set a passcode later by going to your phone settings.</string>
-
     <!-- Biometric Opt-In -->
     <string name="app_enableBiometricsTitle">Unlock the app with biometrics</string>
     <string name="app_enableBiometricsBody1">You can unlock the app with your face, fingerprint or iris within 30 minutes of signing in with GOV.UK One Login.</string>

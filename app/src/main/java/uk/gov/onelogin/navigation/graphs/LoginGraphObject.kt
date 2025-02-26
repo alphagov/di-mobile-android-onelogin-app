@@ -6,11 +6,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import uk.gov.onelogin.core.navigation.data.LoginRoutes
-import uk.gov.onelogin.core.navigation.data.MainNavRoutes
 import uk.gov.onelogin.core.navigation.domain.hasPreviousBackStack
 import uk.gov.onelogin.core.ui.pages.loading.LoadingScreen
 import uk.gov.onelogin.features.error.ui.signin.SignInErrorScreen
-import uk.gov.onelogin.features.login.ui.signin.PasscodeInfoScreen
 import uk.gov.onelogin.features.login.ui.signin.biooptin.BiometricsOptInScreen
 import uk.gov.onelogin.features.login.ui.signin.splash.SplashScreen
 import uk.gov.onelogin.features.login.ui.signin.welcome.WelcomeScreen
@@ -53,14 +51,6 @@ object LoginGraphObject {
                 route = LoginRoutes.Loading.getRoute()
             ) {
                 LoadingScreen {}
-            }
-
-            composable(
-                route = LoginRoutes.PasscodeInfo.getRoute()
-            ) {
-                PasscodeInfoScreen {
-                    navController.navigate(MainNavRoutes.Start.getRoute())
-                }
             }
 
             composable(

@@ -130,7 +130,7 @@ class WelcomeScreenViewModel @Inject constructor(
 
             !credChecker.isDeviceSecure() -> {
                 bioPrefHandler.setBioPref(BiometricPreference.NONE)
-                navigator.navigate(LoginRoutes.PasscodeInfo, true)
+                navigator.navigate(MainNavRoutes.Start, true)
             }
 
             shouldSeeBiometricOptIn() ->

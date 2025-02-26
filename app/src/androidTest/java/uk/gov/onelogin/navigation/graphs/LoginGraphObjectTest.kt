@@ -4,7 +4,6 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
 import androidx.test.filters.FlakyTest
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -91,24 +90,6 @@ class LoginGraphObjectTest : TestCase() {
         composeTestRule.onNodeWithText(
             resources.getString(R.string.app_analyticsPermissionBody)
         ).assertIsDisplayed()
-    }
-
-    @FlakyTest
-    @Test
-    fun loginGraph_PasscodeInfo_Button() {
-        composeTestRule.setActivity {
-            navigator.navigate(LoginRoutes.PasscodeInfo)
-        }
-
-        composeTestRule.apply {
-            onNodeWithText(
-                resources.getString(R.string.app_noPasscodePatternSetupTitle)
-            ).assertIsDisplayed()
-            onNodeWithText(resources.getString(R.string.app_continue)).performClick()
-            onNodeWithText(
-                resources.getString(R.string.app_home)
-            )
-        }
     }
 
     @FlakyTest

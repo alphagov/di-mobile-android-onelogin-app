@@ -36,6 +36,7 @@ import uk.gov.onelogin.features.login.domain.signin.loginredirect.HandleLoginRed
 import uk.gov.onelogin.features.login.domain.signin.remotelogin.HandleRemoteLogin
 import uk.gov.onelogin.features.login.ui.signin.welcome.WelcomeScreenViewModel
 
+@Suppress("UNCHECKED_CAST")
 @OptIn(ExperimentalCoroutinesApi::class)
 @ExtendWith(InstantExecutorExtension::class, CoroutinesTestExtension::class)
 class WelcomeScreenViewModelTest {
@@ -217,7 +218,7 @@ class WelcomeScreenViewModelTest {
             verify(mockSaveTokenExpiry).invoke(tokenResponse.accessTokenExpirationTime)
             verify(mockTokenRepository).setTokenResponse(tokenResponse)
             verify(mockBioPrefHandler).setBioPref(BiometricPreference.NONE)
-            verify(mockNavigator).navigate(LoginRoutes.PasscodeInfo, true)
+            verify(mockNavigator).navigate(MainNavRoutes.Start, true)
         }
 
     @Suppress("UNCHECKED_CAST")
